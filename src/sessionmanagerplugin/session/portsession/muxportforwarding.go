@@ -23,7 +23,6 @@ import (
 	"io"
 	"net"
 	"os"
-	"os/signal"
 	"path/filepath"
 	"strconv"
 	"sync"
@@ -87,7 +86,6 @@ func (p *MuxPortForwarding) Stop() {
 		p.muxClient.close()
 	}
 	p.cleanUp()
-	os.Exit(0)
 }
 
 // InitializeStreams initializes i/o streams
@@ -184,20 +182,9 @@ func (p *MuxPortForwarding) initialize(log log.T, agentVersion string) (err erro
 	return g.Wait()
 }
 
-// handleControlSignals handles terminate signals
+// handleControlSignals is a no-op when used as a library.
+// Signal handling is managed by the caller.
 func (p *MuxPortForwarding) handleControlSignals(log log.T) {
-	c := make(chan os.Signal, 1)
-	signal.Notify(c, sessionutil.ControlSignals...)
-	go func() {
-		<-c
-		fmt.Println("Terminate signal received, exiting.")
-
-		if err := p.session.DataChannel.SendFlag(log, message.TerminateSession); err != nil {
-			log.Errorf("Failed to send TerminateSession flag: %v", err)
-		}
-		fmt.Fprintf(os.Stdout, "\n\nExiting session with sessionId: %s.\n\n", p.sessionId)
-		p.Stop()
-	}()
 }
 
 // transferDataToServer reads from smux client connection and sends on data channel

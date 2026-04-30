@@ -17,8 +17,6 @@ package portsession
 import (
 	"fmt"
 	"net"
-	"os"
-	"os/signal"
 	"strconv"
 	"time"
 
@@ -26,8 +24,6 @@ import (
 	"github.com/kyleparisi/session-manager-plugin/src/log"
 	"github.com/kyleparisi/session-manager-plugin/src/message"
 	"github.com/kyleparisi/session-manager-plugin/src/sessionmanagerplugin/session"
-	"github.com/kyleparisi/session-manager-plugin/src/sessionmanagerplugin/session/sessionutil"
-	"github.com/kyleparisi/session-manager-plugin/src/version"
 )
 
 // BasicPortForwarding is type of port session
@@ -61,7 +57,6 @@ func (p *BasicPortForwarding) Stop() {
 	if p.stream != nil {
 		(*p.stream).Close()
 	}
-	os.Exit(0)
 }
 
 // InitializeStreams establishes connection and initializes the stream
@@ -163,24 +158,9 @@ func (p *BasicPortForwarding) startLocalListener(log log.T, portNumber string) (
 	return
 }
 
-// handleControlSignals handles terminate signals
+// handleControlSignals is a no-op when used as a library.
+// Signal handling is managed by the caller.
 func (p *BasicPortForwarding) handleControlSignals(log log.T) {
-	c := make(chan os.Signal, 1)
-	signal.Notify(c, sessionutil.ControlSignals...)
-	go func() {
-		<-c
-		fmt.Println("Terminate signal received, exiting.")
-
-		if version.DoesAgentSupportTerminateSessionFlag(log, p.session.DataChannel.GetAgentVersion()) {
-			if err := p.session.DataChannel.SendFlag(log, message.TerminateSession); err != nil {
-				log.Errorf("Failed to send TerminateSession flag: %v", err)
-			}
-			fmt.Fprintf(os.Stdout, "\n\nExiting session with sessionId: %s.\n\n", p.sessionId)
-			p.Stop()
-		} else {
-			p.session.TerminateSession(log)
-		}
-	}()
 }
 
 // reconnect closes existing connection, listens to new connection and accept it
