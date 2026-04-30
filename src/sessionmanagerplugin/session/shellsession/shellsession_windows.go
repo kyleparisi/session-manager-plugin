@@ -21,10 +21,10 @@ import (
 	"os"
 	"time"
 
-	"github.com/aws/session-manager-plugin/src/log"
-	"github.com/aws/session-manager-plugin/src/message"
-	"github.com/aws/session-manager-plugin/src/sessionmanagerplugin/session/keyboard"
-	"github.com/aws/session-manager-plugin/src/sessionmanagerplugin/session/sessionutil"
+	"github.com/kyleparisi/session-manager-plugin/src/log"
+	"github.com/kyleparisi/session-manager-plugin/src/message"
+	"github.com/kyleparisi/session-manager-plugin/src/sessionmanagerplugin/session/keyboard"
+	"github.com/kyleparisi/session-manager-plugin/src/sessionmanagerplugin/session/sessionutil"
 )
 
 // Byte array for key inputs

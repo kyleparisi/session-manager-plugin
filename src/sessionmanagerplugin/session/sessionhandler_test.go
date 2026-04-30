@@ -19,12 +19,12 @@ import (
 	"os"
 	"testing"
 
-	"github.com/aws/session-manager-plugin/src/communicator"
-	wsChannelMock "github.com/aws/session-manager-plugin/src/communicator/mocks"
-	"github.com/aws/session-manager-plugin/src/config"
-	"github.com/aws/session-manager-plugin/src/datachannel"
-	dataChannelMock "github.com/aws/session-manager-plugin/src/datachannel/mocks"
-	"github.com/aws/session-manager-plugin/src/message"
+	"github.com/kyleparisi/session-manager-plugin/src/communicator"
+	wsChannelMock "github.com/kyleparisi/session-manager-plugin/src/communicator/mocks"
+	"github.com/kyleparisi/session-manager-plugin/src/config"
+	"github.com/kyleparisi/session-manager-plugin/src/datachannel"
+	dataChannelMock "github.com/kyleparisi/session-manager-plugin/src/datachannel/mocks"
+	"github.com/kyleparisi/session-manager-plugin/src/message"
 	"github.com/stretchr/testify/mock"
 
 	"github.com/stretchr/testify/assert"

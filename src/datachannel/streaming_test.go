@@ -26,13 +26,13 @@ import (
 
 	"github.com/aws/aws-sdk-go-v2/aws"
 	v4 "github.com/aws/aws-sdk-go-v2/aws/signer/v4"
-	communicatorMocks "github.com/aws/session-manager-plugin/src/communicator/mocks"
-	"github.com/aws/session-manager-plugin/src/config"
-	"github.com/aws/session-manager-plugin/src/encryption"
-	"github.com/aws/session-manager-plugin/src/encryption/mocks"
-	"github.com/aws/session-manager-plugin/src/log"
-	"github.com/aws/session-manager-plugin/src/message"
-	"github.com/aws/session-manager-plugin/src/version"
+	communicatorMocks "github.com/kyleparisi/session-manager-plugin/src/communicator/mocks"
+	"github.com/kyleparisi/session-manager-plugin/src/config"
+	"github.com/kyleparisi/session-manager-plugin/src/encryption"
+	"github.com/kyleparisi/session-manager-plugin/src/encryption/mocks"
+	"github.com/kyleparisi/session-manager-plugin/src/log"
+	"github.com/kyleparisi/session-manager-plugin/src/message"
+	"github.com/kyleparisi/session-manager-plugin/src/version"
 	"github.com/gorilla/websocket"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
@@ -603,7 +603,7 @@ func getClientMessage(sequenceNumber int64, messageType string, payloadType uint
 		CreatedDate:    createdDate,
 		SequenceNumber: sequenceNumber,
 		Flags:          2,
-		MessageId:      messageUUID,
+		MessageId:      *messageUUID,
 		PayloadType:    payloadType,
 		Payload:        payload,
 	}

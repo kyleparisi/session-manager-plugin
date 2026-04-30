@@ -23,12 +23,12 @@ import (
 
 	"github.com/aws/aws-sdk-go-v2/aws/signer/v4"
 	"github.com/aws/aws-sdk-go-v2/service/ssm"
-	"github.com/aws/session-manager-plugin/src/communicator"
-	"github.com/aws/session-manager-plugin/src/config"
-	"github.com/aws/session-manager-plugin/src/log"
-	"github.com/aws/session-manager-plugin/src/message"
-	"github.com/aws/session-manager-plugin/src/retry"
-	"github.com/aws/session-manager-plugin/src/sdkutil"
+	"github.com/kyleparisi/session-manager-plugin/src/communicator"
+	"github.com/kyleparisi/session-manager-plugin/src/config"
+	"github.com/kyleparisi/session-manager-plugin/src/log"
+	"github.com/kyleparisi/session-manager-plugin/src/message"
+	"github.com/kyleparisi/session-manager-plugin/src/retry"
+	"github.com/kyleparisi/session-manager-plugin/src/sdkutil"
 )
 
 // OpenDataChannel initializes datachannel

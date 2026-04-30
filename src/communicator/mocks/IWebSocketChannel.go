@@ -6,7 +6,7 @@ package mocks
 import (
 	"github.com/aws/aws-sdk-go-v2/aws"
 	v4 "github.com/aws/aws-sdk-go-v2/aws/signer/v4"
-	log "github.com/aws/session-manager-plugin/src/log"
+	log "github.com/kyleparisi/session-manager-plugin/src/log"
 	mock "github.com/stretchr/testify/mock"
 
 	time "time"

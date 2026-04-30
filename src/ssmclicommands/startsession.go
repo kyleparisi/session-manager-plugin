@@ -24,14 +24,14 @@ import (
 	"context"
 
 	"github.com/aws/aws-sdk-go-v2/service/ssm"
-	"github.com/aws/session-manager-plugin/src/datachannel"
-	"github.com/aws/session-manager-plugin/src/jsonutil"
-	"github.com/aws/session-manager-plugin/src/log"
-	"github.com/aws/session-manager-plugin/src/sdkutil"
-	"github.com/aws/session-manager-plugin/src/sessionmanagerplugin/session"
-	_ "github.com/aws/session-manager-plugin/src/sessionmanagerplugin/session/portsession"
-	_ "github.com/aws/session-manager-plugin/src/sessionmanagerplugin/session/shellsession"
-	"github.com/aws/session-manager-plugin/src/ssmclicommands/utils"
+	"github.com/kyleparisi/session-manager-plugin/src/datachannel"
+	"github.com/kyleparisi/session-manager-plugin/src/jsonutil"
+	"github.com/kyleparisi/session-manager-plugin/src/log"
+	"github.com/kyleparisi/session-manager-plugin/src/sdkutil"
+	"github.com/kyleparisi/session-manager-plugin/src/sessionmanagerplugin/session"
+	_ "github.com/kyleparisi/session-manager-plugin/src/sessionmanagerplugin/session/portsession"
+	_ "github.com/kyleparisi/session-manager-plugin/src/sessionmanagerplugin/session/shellsession"
+	"github.com/kyleparisi/session-manager-plugin/src/ssmclicommands/utils"
 	"github.com/twinj/uuid"
 )
 
@@ -244,7 +244,7 @@ func contains(arr []string, item string) bool {
 // function to get start-session parameters
 func (s *StartSessionCommand) getStartSessionParams(log log.T, parameters map[string][]string) (string, string, string, error) {
 	//Fetch command token
-	uuid.SwitchFormat(uuid.CleanHyphen)
+	uuid.SwitchFormat(uuid.FormatHex)
 
 	startSessionInput := ssm.StartSessionInput{
 		Target: &parameters[INSTANCE_ID][0],

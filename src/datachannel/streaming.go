@@ -29,13 +29,13 @@ import (
 
 	"github.com/aws/aws-sdk-go-v2/aws"
 	v4 "github.com/aws/aws-sdk-go-v2/aws/signer/v4"
-	"github.com/aws/session-manager-plugin/src/communicator"
-	"github.com/aws/session-manager-plugin/src/config"
-	"github.com/aws/session-manager-plugin/src/encryption"
-	"github.com/aws/session-manager-plugin/src/log"
-	"github.com/aws/session-manager-plugin/src/message"
-	"github.com/aws/session-manager-plugin/src/service"
-	"github.com/aws/session-manager-plugin/src/version"
+	"github.com/kyleparisi/session-manager-plugin/src/communicator"
+	"github.com/kyleparisi/session-manager-plugin/src/config"
+	"github.com/kyleparisi/session-manager-plugin/src/encryption"
+	"github.com/kyleparisi/session-manager-plugin/src/log"
+	"github.com/kyleparisi/session-manager-plugin/src/message"
+	"github.com/kyleparisi/session-manager-plugin/src/service"
+	"github.com/kyleparisi/session-manager-plugin/src/version"
 	"github.com/gorilla/websocket"
 	"github.com/twinj/uuid"
 )
@@ -199,7 +199,7 @@ func (dataChannel *DataChannel) SetWebsocket(log log.T, channelUrl string, chann
 
 // FinalizeHandshake sends the token for service to acknowledge the connection.
 func (dataChannel *DataChannel) FinalizeDataChannelHandshake(log log.T, tokenValue string) (err error) {
-	uuid.SwitchFormat(uuid.CleanHyphen)
+	uuid.SwitchFormat(uuid.FormatHex)
 	uid := uuid.NewV4().String()
 
 	log.Infof("Sending token through data channel %s to acknowledge connection", dataChannel.wsChannel.GetStreamUrl())

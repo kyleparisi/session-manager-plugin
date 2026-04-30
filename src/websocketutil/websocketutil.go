@@ -18,7 +18,7 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/aws/session-manager-plugin/src/log"
+	"github.com/kyleparisi/session-manager-plugin/src/log"
 	"github.com/gorilla/websocket"
 )
 

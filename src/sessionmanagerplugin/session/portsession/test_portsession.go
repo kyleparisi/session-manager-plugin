@@ -17,11 +17,11 @@ package portsession
 import (
 	"github.com/aws/aws-sdk-go-v2/aws"
 	v4 "github.com/aws/aws-sdk-go-v2/aws/signer/v4"
-	"github.com/aws/session-manager-plugin/src/communicator/mocks"
-	"github.com/aws/session-manager-plugin/src/datachannel"
-	"github.com/aws/session-manager-plugin/src/log"
-	"github.com/aws/session-manager-plugin/src/message"
-	"github.com/aws/session-manager-plugin/src/sessionmanagerplugin/session"
+	"github.com/kyleparisi/session-manager-plugin/src/communicator/mocks"
+	"github.com/kyleparisi/session-manager-plugin/src/datachannel"
+	"github.com/kyleparisi/session-manager-plugin/src/log"
+	"github.com/kyleparisi/session-manager-plugin/src/message"
+	"github.com/kyleparisi/session-manager-plugin/src/sessionmanagerplugin/session"
 )
 
 var (

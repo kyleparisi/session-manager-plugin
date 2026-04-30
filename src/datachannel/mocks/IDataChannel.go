@@ -4,14 +4,14 @@
 package mocks
 
 import (
-	communicator "github.com/aws/session-manager-plugin/src/communicator"
-	datachannel "github.com/aws/session-manager-plugin/src/datachannel"
+	communicator "github.com/kyleparisi/session-manager-plugin/src/communicator"
+	datachannel "github.com/kyleparisi/session-manager-plugin/src/datachannel"
 
 	list "container/list"
 
-	log "github.com/aws/session-manager-plugin/src/log"
+	log "github.com/kyleparisi/session-manager-plugin/src/log"
 
-	message "github.com/aws/session-manager-plugin/src/message"
+	message "github.com/kyleparisi/session-manager-plugin/src/message"
 
 	mock "github.com/stretchr/testify/mock"
 
