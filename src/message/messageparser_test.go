@@ -861,11 +861,16 @@ func TestPutUuid(t *testing.T) {
 			// Get Uuid from string
 			uuidInput, err := uuid.Parse(strInput)
 
+			var uuidVal uuid.UUID
+			if uuidInput != nil {
+				uuidVal = *uuidInput
+			}
+
 			err = putUuid(
 				mockLogger,
 				tc.byteArray,
 				tc.offsetStart,
-				*uuidInput)
+				uuidVal)
 			if tc.expectation == SUCCESS {
 				assert.Nil(t, err, "%s:%s threw an error when no error was expected.", t.Name(), tc.name)
 				strExpected := tc.expected.(string)
